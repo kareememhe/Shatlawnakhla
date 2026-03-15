@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>شتلة ونخلة | العرض</title>
+  <style>
+    :root {
+      --bg: #f3f5f8;
+      --surface: rgba(255, 255, 255, 0.82);
+      --surface-strong: #ffffff;
+      --text: #0f172a;
+      --muted: #5b6472;
+      --line: #d8deea;
+      --brand: #0a7f52;
+      --brand-soft: #e5f5ef;
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --shadow: 0 14px 40px rgba(16, 24, 40, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, #dff5ea 0%, transparent 45%),
+        radial-gradient(circle at 90% 0%, #e6eefc 0%, transparent 40%),
+        var(--bg);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 20px 14px;
+    }
+
+    .phone {
+      width: 100%;
+      max-width: 430px;
+      border-radius: 36px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.74));
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+    }
+
+    .notch {
+      width: 120px;
+      height: 30px;
+      border-radius: 0 0 18px 18px;
+      background: #0f172a;
+      margin: 0 auto;
+    }
+
+    .content {
+      padding: 22px 18px 18px;
+    }
+
+    .top {
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .pill {
+      font-size: 12px;
+      color: #274359;
+      background: #eef3f9;
+      border: 1px solid #dde5f0;
+      border-radius: 999px;
+      padding: 6px 10px;
+    }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .btn {
+      text-decoration: none;
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid transparent;
+      display: inline-block;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(10, 127, 82, 0.22);
+    }
+
+    .btn-secondary {
+      background: var(--surface-strong);
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .footer-note {
+      background: var(--brand-soft);
+      border: 1px solid #cfeadf;
+      border-radius: 14px;
+      padding: 12px;
+      color: #255042;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-top: 6px;
+    }
+
+    @media (min-width: 860px) {
+      .phone {
+        max-width: 460px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="phone">
+    <div class="notch" aria-hidden="true"></div>
+    <section class="content">
+      <header class="top">
+        <div class="eyebrow">Shatla & Nakhla</div>
+        <h1>عرض واضح ومختصر للمشروع</h1>
+        <p class="subtitle">هذا العرض يركز على النقاط المهمة فقط: الفكرة، التنفيذ، والنتيجة المتوقعة بدون مبالغة.</p>
+      </header>
+
+      <div class="stack">
+        <article class="card">
+          <h2>خطة العمل</h2>
+          <p>نسخة مرتبة من الخطة التجارية مع أرقام تشغيلية، مراحل التنفيذ، وتكلفة واضحة.</p>
+          <div class="meta">
+            <span class="pill">قراءة سريعة</span>
+            <span class="pill">لغة مهنية</span>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-secondary" href="الخطة.html">فتح خطة العمل</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>الموقع الفعلي</h2>
+          <p>نسخة العمل التي سيستخدمها العميل، بتجربة متوافقة مع الهاتف وسهلة في الطلب.</p>
+          <div class="meta">
+            <span class="pill">جاهز للمعاينة</span>
+            <span class="pill">Mobile-first</span>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="shatla-nakhla-v3.html" target="_blank" rel="noopener">معاينة الموقع</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="footer-note">للتواصل المباشر: واتساب 0920162005</p>
+    </section>
+  </main>
+</body>
+</html>
+

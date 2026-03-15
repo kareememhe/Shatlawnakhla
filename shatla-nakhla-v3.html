@@ -1,0 +1,1038 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شتلة ونخلة | SHATLA & NAKLA - أجود أنواع التمور</title>
+    <meta name="description" content="شركة شتلة ونخلة لأجود أنواع التمور الليبية، زيت الزيتون، العسل والفواكه المجففة - طرابلس">
+    <meta name="keywords" content="تمور ليبية, تمر طرابلس, زيت زيتون ليبي, عسل طبيعي, شركة شتلة ونخلة, تمور للهدايا, فواكه مجففة ليبية">
+    <meta property="og:image" content="https://yourdomain.com/shatla-og-image.jpg">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+        :root {
+            --gold: #c9a227; --gold-light: #e8c97a; --gold-dark: #a68523;
+            --brown: #5c4033; --brown-dark: #3d2a1f;
+            --cream: #fdfbf7; --cream-dark: #f5ede0;
+            --green: #2d6a4f; --green-dark: #1b4332;
+            --text-primary: #2c2416; --text-secondary: #5c4d3d; --text-muted: #8a7a68;
+            --white: #ffffff;
+            --shadow-md: 0 4px 20px rgba(92, 64, 51, 0.12);
+            --shadow-lg: 0 8px 40px rgba(92, 64, 51, 0.18);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'IBM Plex Sans Arabic', sans-serif; background: var(--cream); color: var(--text-primary); line-height: 1.8; overflow-x: hidden; }
+        body.en { direction: ltr; }
+
+        /* Loader */
+        .loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--cream); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; transition: opacity 0.5s, visibility 0.5s; }
+        .loader.hidden { opacity: 0; visibility: hidden; }
+        .loader img { width: 100px; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+        /* Nav */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.75rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(253,251,247,0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(201,162,39,0.15); transition: all 0.3s; }
+        nav.scrolled { box-shadow: var(--shadow-md); }
+        .logo img { height: 50px; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--gold-dark); }
+        .nav-actions { display: flex; gap: 0.75rem; align-items: center; }
+        .lang-toggle { background: var(--white); border: 1px solid rgba(201,162,39,0.3); padding: 0.5rem 1rem; border-radius: 25px; cursor: pointer; font-family: inherit; font-weight: 600; }
+        .nav-cta { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--white); padding: 0.6rem 1.25rem; border-radius: 25px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* Hero */
+        .hero { min-height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; }
+        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(29,67,50,0.85), rgba(61,42,31,0.8), rgba(166,133,35,0.7)); z-index: -1; }
+        .hero-container { max-width: 1400px; margin: 0 auto; padding: 8rem 5% 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%; }
+        .hero-content { color: var(--white); }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; margin-bottom: 1.5rem; backdrop-filter: blur(10px); }
+        .hero h1 { font-family: 'Amiri', serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.3; margin-bottom: 1.5rem; }
+        .hero h1 .highlight { color: var(--gold-light); }
+        .hero-subtitle { font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9; }
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn { padding: 1rem 2rem; border-radius: 30px; font-family: inherit; font-size: 1rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.3s, box-shadow 0.3s; border: none; cursor: pointer; }
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(37,211,102,0.4); }
+        .btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.3); }
+        .hero-features { display: flex; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
+        .hero-feature { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 0.6rem 1rem; border-radius: 12px; font-size: 0.85rem; }
+        .hero-image img { width: 100%; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: var(--shadow-lg); border: 3px solid rgba(255,255,255,0.2); }
+        .hero-image { position: relative; }
+        .hero-badge-floating { position: absolute; bottom: -15px; right: 15px; background: white; padding: 1rem 1.5rem; border-radius: 15px; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 0.75rem; }
+        .hero-badge-floating h4 { font-size: 1.5rem; color: var(--gold-dark); }
+        .hero-badge-floating p { font-size: 0.75rem; color: var(--text-muted); }
+
+        /* Sections */
+        section { padding: 5rem 5%; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 3rem; }
+        .section-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(201,162,39,0.1); color: var(--gold-dark); padding: 0.5rem 1.25rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+        .section-title { font-family: 'Amiri', serif; font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--brown); margin-bottom: 0.75rem; }
+        .section-desc { color: var(--text-secondary); font-size: 1rem; }
+
+        /* Products */
+        .products { background: var(--white); }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+        .product-card { background: var(--cream); border-radius: 20px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; border: 1px solid rgba(201,162,39,0.1); }
+        .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .product-image { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: linear-gradient(135deg, var(--cream-dark), var(--cream)); position: relative; }
+        .product-badge { position: absolute; top: 10px; right: 10px; background: #c0392b; color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.7rem; font-weight: 600; }
+        .price-badge { position: absolute; bottom: 10px; left: 10px; background: var(--gold); color: white; padding: 0.5rem 1rem; border-radius: 10px; text-align: center; }
+        .price-badge .old-price { text-decoration: line-through; font-size: 0.8rem; opacity: 0.7; margin-right: 0.3rem; }
+        .price-badge .current-price { font-weight: 700; font-size: 1.1rem; }
+        .product-content { padding: 1.5rem; }
+        .product-category { display: inline-block; background: rgba(45,106,79,0.1); color: var(--green); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.7rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .product-card h3 { font-size: 1.15rem; color: var(--brown); margin-bottom: 0.5rem; }
+        .product-card p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; }
+        .product-footer { display: flex; justify-content: space-between; align-items: center; }
+        .product-rating { color: var(--gold); font-size: 0.85rem; }
+        .product-btn { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: white; border: none; padding: 0.6rem 1.25rem; border-radius: 20px; font-family: inherit; font-weight: 600; cursor: pointer; transition: transform 0.3s; }
+        .product-btn:hover { transform: scale(1.05); }
+        .quantity-selector { display: flex; align-items: center; gap: 0.5rem; margin: 1rem 0; }
+        .qty-btn { width: 30px; height: 30px; border-radius: 50%; background: var(--cream-dark); border: 1px solid var(--gold-light); cursor: pointer; }
+        .quantity-selector input { width: 40px; text-align: center; border: 1px solid var(--gold-light); border-radius: 8px; padding: 0.3rem; }
+        .availability { font-size: 0.8rem; padding: 0.3rem 0.8rem; border-radius: 12px; display: inline-block; }
+        .in-stock { background: rgba(45,106,79,0.1); color: var(--green); }
+        .out-of-stock { background: rgba(192,57,43,0.1); color: #c0392b; }
+
+        /* Shopping Cart Modal */
+        .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
+        .modal-content { background: var(--white); margin: 5% auto; padding: 2rem; border-radius: 20px; width: 90%; max-width: 500px; box-shadow: var(--shadow-lg); }
+        .close { color: var(--text-muted); float: left; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .close:hover { color: var(--brown); }
+        #cartItems { max-height: 300px; overflow-y: auto; margin: 1.5rem 0; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--cream-dark); }
+        .cart-total { text-align: left; font-size: 1.25rem; margin: 1.5rem 0; padding-top: 1rem; border-top: 2px solid var(--gold-light); }
+
+        /* About */
+        .about { background: var(--cream); }
+        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; align-items: center; }
+        .about-image { position: relative; }
+        .about-image img { width: 100%; height: 450px; object-fit: cover; border-radius: 20px; box-shadow: var(--shadow-lg); }
+        .about-badge { position: absolute; bottom: -20px; left: -20px; background: linear-gradient(135deg, var(--green), var(--green-dark)); color: white; padding: 1.5rem 2rem; border-radius: 15px; text-align: center; }
+        .about-badge h3 { font-size: 2.5rem; line-height: 1; }
+        .about-badge p { font-size: 0.85rem; opacity: 0.9; }
+        .about-content h2 { font-family: 'Amiri', serif; font-size: 2rem; color: var(--brown); margin-bottom: 1rem; }
+        .about-content > p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+        .about-feature { display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; background: var(--white); border-radius: 12px; }
+        .about-feature-icon { font-size: 1.5rem; }
+        .about-feature h4 { font-size: 0.95rem; color: var(--brown); }
+        .about-feature p { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Business Benefits */
+        .benefits { background: var(--white); }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .benefit-card { background: var(--cream); padding: 2.5rem 2rem; border-radius: 20px; text-align: center; border: 1px solid rgba(201,162,39,0.1); position: relative; }
+        .benefit-number { position: absolute; top: -20px; right: 20px; background: var(--gold); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+        .benefit-card h3 { font-size: 1.3rem; color: var(--brown); margin-bottom: 1rem; }
+        .benefit-card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        /* Dashboard Preview */
+        .dashboard-preview { background: var(--cream); }
+        .dashboard-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+        .dashboard-card { background: var(--white); padding: 2rem; border-radius: 15px; text-align: center; box-shadow: var(--shadow-md); border: 1px solid rgba(201,162,39,0.1); }
+        .dashboard-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .dashboard-card h3 { font-size: 1.1rem; color: var(--brown); margin-bottom: 0.5rem; }
+        .dashboard-card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* Videos */
+        .videos { background: var(--brown-dark); color: white; text-align: center; }
+        .videos .section-tag { background: rgba(255,255,255,0.1); color: var(--gold-light); }
+        .videos .section-title { color: white; }
+        .videos .section-desc { color: rgba(255,255,255,0.8); }
+        .video-wrapper { max-width: 800px; margin: 0 auto 2rem; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg); }
+        .video-wrapper video { width: 100%; display: block; }
+        .tiktok-btn { display: inline-flex; align-items: center; gap: 0.75rem; background: white; color: var(--text-primary); padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s; }
+        .tiktok-btn:hover { transform: translateY(-3px) scale(1.02); }
+
+        /* Features */
+        .features { background: var(--white); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+        .feature-card { background: var(--cream); padding: 2rem; border-radius: 20px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .feature-card h3 { font-size: 1.1rem; color: var(--brown); margin-bottom: 0.5rem; }
+        .feature-card p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        /* Occasions */
+        .occasions { background: var(--cream); }
+        .occasions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+        .occasion-card { padding: 2.5rem; border-radius: 20px; color: white; position: relative; overflow: hidden; transition: transform 0.3s; }
+        .occasion-card:nth-child(1) { background: linear-gradient(135deg, var(--green), var(--green-dark)); }
+        .occasion-card:nth-child(2) { background: linear-gradient(135deg, var(--gold), #c27c3e); }
+        .occasion-card:nth-child(3) { background: linear-gradient(135deg, var(--brown), var(--brown-dark)); }
+        .occasion-card:hover { transform: translateY(-8px); }
+        .occasion-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .occasion-card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .occasion-card p { opacity: 0.9; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .occasion-btn { background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: background 0.3s; }
+        .occasion-btn:hover { background: rgba(255,255,255,0.3); }
+
+        /* Implementation Timeline */
+        .timeline { background: var(--white); }
+        .timeline-steps { max-width: 800px; margin: 0 auto; position: relative; }
+        .timeline-steps:before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--gold-light); transform: translateX(-50%); }
+        .step { display: flex; align-items: center; margin-bottom: 3rem; position: relative; }
+        .step:nth-child(odd) { flex-direction: row-reverse; }
+        .step-circle { width: 60px; height: 60px; background: var(--gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; z-index: 1; flex-shrink: 0; }
+        .step-content { background: var(--cream); padding: 1.5rem; border-radius: 15px; margin: 0 2rem; flex: 1; box-shadow: var(--shadow-md); }
+        .step-content h3 { color: var(--brown); margin-bottom: 0.5rem; }
+        .step-content p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* Pricing & Packages */
+        .pricing { background: var(--cream); }
+        .pricing-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+        .pricing-card { background: var(--white); padding: 2.5rem; border-radius: 20px; text-align: center; border: 2px solid var(--cream-dark); position: relative; transition: transform 0.3s; }
+        .pricing-card:hover { transform: translateY(-10px); }
+        .pricing-card.recommended { border-color: var(--gold); box-shadow: var(--shadow-lg); }
+        .recommended-badge { position: absolute; top: -12px; right: 50%; transform: translateX(50%); background: var(--gold); color: white; padding: 0.5rem 1.5rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .pricing-card h3 { font-size: 1.5rem; color: var(--brown); margin-bottom: 1rem; }
+        .pricing-card .price { font-size: 2.5rem; font-weight: 700; color: var(--gold-dark); margin: 1.5rem 0; }
+        .pricing-card .price span { font-size: 1rem; color: var(--text-secondary); }
+        .pricing-card ul { list-style: none; text-align: right; margin: 1.5rem 0; }
+        .pricing-card li { margin-bottom: 0.75rem; color: var(--text-secondary); position: relative; padding-right: 1.5rem; }
+        .pricing-card li:before { content: '✓'; position: absolute; right: 0; color: var(--green); }
+        .pricing-card button { width: 100%; padding: 1rem; border-radius: 15px; border: none; background: var(--gold); color: white; font-weight: 600; cursor: pointer; transition: background 0.3s; }
+        .pricing-card button:hover { background: var(--gold-dark); }
+        .pricing-card.recommended button { background: #25D366; }
+        .pricing-card.recommended button:hover { background: #1da851; }
+
+        /* Reviews */
+        .reviews { background: var(--white); }
+        .reviews-stats { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .review-stat { text-align: center; padding: 1.5rem 2.5rem; background: var(--cream); border-radius: 15px; }
+        .review-stat-number { font-size: 2.5rem; font-weight: 700; color: var(--gold-dark); }
+        .review-stat-label { font-size: 0.9rem; color: var(--text-secondary); }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+        .review-card { background: var(--cream); padding: 1.75rem; border-radius: 20px; }
+        .review-stars { color: var(--gold); margin-bottom: 0.75rem; letter-spacing: 2px; }
+        .review-text { color: var(--text-secondary); font-style: italic; margin-bottom: 1rem; }
+        .review-author { display: flex; align-items: center; gap: 0.75rem; }
+        .review-avatar { width: 45px; height: 45px; background: linear-gradient(135deg, var(--gold), var(--green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; }
+        .review-name { font-weight: 600; color: var(--brown); }
+        .review-location { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Testimonial Form */
+        .testimonial-form { background: var(--white); padding: 2rem; border-radius: 20px; margin-top: 3rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .testimonial-form h3 { color: var(--brown); margin-bottom: 1rem; text-align: center; }
+        .testimonial-form input, .testimonial-form textarea { width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid var(--cream-dark); border-radius: 10px; font-family: inherit; }
+        .testimonial-form textarea { height: 120px; resize: vertical; }
+        .star-rating { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1rem; }
+        .star-rating span { font-size: 2rem; color: #ddd; cursor: pointer; transition: color 0.2s; }
+        .star-rating span:hover, .star-rating span.active { color: var(--gold); }
+        .testimonial-form button { width: 100%; padding: 1rem; background: var(--gold); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; }
+
+        /* Contact */
+        .contact { background: var(--cream); }
+        .contact-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; max-width: 1100px; margin: 0 auto; }
+        .contact-info { background: linear-gradient(135deg, var(--green), var(--green-dark)); padding: 2.5rem; border-radius: 20px; color: white; }
+        .contact-info h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .contact-info > p { opacity: 0.85; margin-bottom: 1.5rem; }
+        .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; }
+        .contact-icon { width: 45px; height: 45px; background: rgba(255,255,255,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+        .contact-text h4 { font-size: 0.8rem; opacity: 0.75; margin-bottom: 0.2rem; }
+        .contact-text p, .contact-text a { color: white; font-weight: 600; text-decoration: none; }
+        .contact-social { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+        .social-btn { width: 45px; height: 45px; background: rgba(255,255,255,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.25rem; text-decoration: none; transition: background 0.3s, transform 0.3s; }
+        .social-btn:hover { background: var(--gold); transform: translateY(-3px); }
+        .contact-map { border-radius: 20px; overflow: hidden; min-height: 400px; }
+        .contact-map iframe { width: 100%; height: 100%; border: none; }
+
+        /* Final CTA */
+        .final-cta { background: linear-gradient(135deg, var(--brown), var(--brown-dark)); color: white; text-align: center; padding: 5rem 5%; border-radius: 20px; margin: 5rem 5%; }
+        .final-cta h2 { font-family: 'Amiri', serif; font-size: 2.5rem; margin-bottom: 1rem; }
+        .final-cta p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        /* WhatsApp Float */
+        .whatsapp-float { position: fixed; bottom: 20px; left: 20px; z-index: 999; background: #25D366; color: white; padding: 0.75rem 1.25rem; border-radius: 50px; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; box-shadow: 0 5px 20px rgba(37,211,102,0.4); animation: bounce 2s infinite; }
+        body.en .whatsapp-float { left: auto; right: 20px; }
+        @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+        /* Footer */
+        footer { background: var(--brown-dark); color: white; padding: 4rem 5% 2rem; }
+        .footer-content { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .footer-brand img { height: 60px; margin-bottom: 1rem; }
+        .footer-brand p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+        .footer-column h4 { color: var(--gold-light); margin-bottom: 1rem; font-size: 1rem; }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 0.5rem; }
+        .footer-column a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-column a:hover { color: var(--gold-light); }
+        .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+        .powered-by a { color: var(--gold-light); text-decoration: none; }
+
+        /* Cart Button */
+        .cart-btn { background: var(--brown); color: white; padding: 0.5rem 1.5rem; border-radius: 25px; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; border: none; font-family: inherit; font-weight: 600; }
+        .cart-count { background: var(--gold); color: white; width: 20px; height: 20px; border-radius: 50%; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container, .about-container, .contact-container { grid-template-columns: 1fr; }
+            .hero-image { display: none; }
+            .hero-content { text-align: center; }
+            .hero-buttons, .hero-features { justify-content: center; }
+            .about-image { order: -1; }
+            .about-badge { left: 50%; transform: translateX(-50%); bottom: -15px; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+            .timeline-steps:before { left: 30px; }
+            .step { flex-direction: row !important; }
+            .step-content { margin-right: 4rem; margin-left: 0; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); flex-direction: column; padding: 1.5rem; gap: 1rem; box-shadow: var(--shadow-md); }
+            .nav-links.active { display: flex; }
+            .nav-cta { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero { min-height: auto; }
+            .hero-container { padding-top: 6rem; }
+            .about-features { grid-template-columns: 1fr; }
+            .about-badge { position: relative; left: auto; transform: none; margin-top: 1rem; display: inline-block; }
+            .contact-container { grid-template-columns: 1fr; }
+            .contact-map { min-height: 300px; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .pricing-cards { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; }
+            .final-cta { margin: 3rem 0; border-radius: 0; }
+        }
+/* Clean UI refinements */
+section { scroll-margin-top: 90px; }
+a, button { -webkit-tap-highlight-color: transparent; }
+:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+nav {
+    padding: 0.55rem 5%;
+    background: rgba(253,251,247,0.88);
+    border-bottom: 1px solid rgba(201,162,39,0.12);
+}
+nav.scrolled { box-shadow: 0 6px 24px rgba(92, 64, 51, 0.1); }
+.logo img { height: 46px; }
+.hero-overlay {
+    background: linear-gradient(145deg, rgba(29,67,50,0.78), rgba(61,42,31,0.62), rgba(166,133,35,0.5));
+}
+.hero-container { gap: 3rem; }
+.hero-subtitle { opacity: 0.95; max-width: 52ch; }
+.btn {
+    border-radius: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn:active { transform: scale(0.98); }
+.btn-secondary { background: rgba(255,255,255,0.2); }
+.product-card,
+.feature-card,
+.occasion-card,
+.review-card,
+.about-feature,
+.review-stat,
+.contact-info,
+.final-cta,
+.modal-content {
+    border-radius: 18px;
+}
+.product-card,
+.feature-card,
+.review-card,
+.about-feature,
+.review-stat {
+    box-shadow: 0 8px 24px rgba(92, 64, 51, 0.08);
+}
+.product-card:hover,
+.feature-card:hover,
+.occasion-card:hover {
+    transform: translateY(-4px);
+}
+.whatsapp-float {
+    animation: none;
+    padding: 0.7rem 1rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(37,211,102,0.3);
+}
+.whatsapp-float:hover { transform: translateY(-2px); }
+.contact-map iframe { filter: saturate(0.92) contrast(1.02); }
+
+/* Smooth reveal animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .hero-container { gap: 2rem; }
+    .hero-buttons .btn { width: 100%; justify-content: center; }
+    .whatsapp-float { bottom: 14px; left: 14px; }
+    body.en .whatsapp-float { right: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+}
+    </style>
+    
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <img src="shatla-logo.jpg" alt="شتلة ونخلة">
+        <p>جاري التحميل...</p>
+    </div>
+
+    <!-- Shopping Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h3 data-ar="سلة الطلبات" data-en="Order Cart">سلة الطلبات</h3>
+            <div id="cartItems">
+                <!-- Cart items will be added here -->
+            </div>
+            <div class="cart-total">
+                <strong data-ar="الإجمالي:" data-en="Total:">الإجمالي:</strong>
+                <span id="cartTotal">0 د.ل</span>
+            </div>
+            <button onclick="checkout()" class="btn btn-whatsapp" style="width:100%;margin-top:1rem;" data-ar="إتمام الطلب عبر واتساب" data-en="Complete Order via WhatsApp">إتمام الطلب عبر واتساب</button>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/218920162005" class="whatsapp-float" target="_blank">
+        <span>💬</span>
+        <span data-ar="اطلب الآن" data-en="Order Now">اطلب الآن</span>
+    </a>
+
+    <!-- Nav -->
+    <nav id="navbar">
+        <a href="#" class="logo"><img src="shatla-logo.jpg" alt="شتلة ونخلة" loading="eager" decoding="async" fetchpriority="high"></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+            <li><a href="#products" data-ar="منتجاتنا" data-en="Products">منتجاتنا</a></li>
+            <li><a href="#about" data-ar="من نحن" data-en="About">من نحن</a></li>
+            <li><a href="#contact" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="cart-btn" onclick="openCart()">
+                <span>🛒</span>
+                <span data-ar="السلة" data-en="Cart">السلة</span>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+            <button class="lang-toggle" onclick="toggleLanguage()" id="langText">EN</button>
+            <a href="https://wa.me/218920162005" class="nav-cta" target="_blank"><span>💬</span><span data-ar="اطلب" data-en="Order">اطلب</span></a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <img class="hero-video" src="shatla-store.jpg" alt="متجر شتلة ونخلة" loading="eager" decoding="async" fetchpriority="high">
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge"><span>🌴</span><span data-ar="منتجات ليبية أصيلة" data-en="Authentic Libyan Products">منتجات ليبية أصيلة</span></div>
+                <h1><span data-ar="أجود أنواع" data-en="The Finest">أجود أنواع</span><br><span class="highlight" data-ar="التمور الليبية" data-en="Libyan Dates">التمور الليبية</span><br><span data-ar="والمنتجات الطبيعية" data-en="& Natural Products">والمنتجات الطبيعية</span></h1>
+                <p class="hero-subtitle" data-ar="تمور فاخرة، زيت زيتون بكر، عسل طبيعي، وفواكه مجففة. جودة استثنائية من قلب ليبيا." data-en="Premium dates, virgin olive oil, natural honey, and dried fruits. Exceptional quality from Libya.">تمور فاخرة، زيت زيتون بكر، عسل طبيعي، وفواكه مجففة. جودة استثنائية من قلب ليبيا.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/218920162005" class="btn btn-whatsapp" target="_blank"><span>💬</span><span data-ar="اطلب عبر واتساب" data-en="Order on WhatsApp">اطلب عبر واتساب</span></a>
+                    <a href="#products" class="btn btn-secondary" data-ar="تصفح المنتجات" data-en="Browse Products">تصفح المنتجات</a>
+                    <button onclick="showDemo()" class="btn btn-secondary"><span>🎥</span><span data-ar="شاهد العرض" data-en="Watch Demo">شاهد العرض</span></button>
+                </div>
+                <div class="hero-features">
+                    <div class="hero-feature"><span>🚚</span><span data-ar="توصيل طرابلس" data-en="Tripoli Delivery">توصيل طرابلس</span></div>
+                    <div class="hero-feature"><span>✨</span><span data-ar="جودة مضمونة" data-en="Quality Guaranteed">جودة مضمونة</span></div>
+                    <div class="hero-feature"><span>🎁</span><span data-ar="تغليف هدايا" data-en="Gift Wrapping">تغليف هدايا</span></div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="shatla-store.jpg" alt="متجر شتلة ونخلة" loading="lazy" decoding="async">
+                <div class="hero-badge-floating"><span>⭐</span><div><h4>82%</h4><p data-ar="يوصون بنا" data-en="Recommend">يوصون بنا</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <div class="section-header">
+            <span class="section-tag"><span>🌟</span><span data-ar="منتجاتنا" data-en="Products">منتجاتنا</span></span>
+            <h2 class="section-title" data-ar="تشكيلة واسعة من المنتجات الطبيعية" data-en="Wide Selection of Natural Products">تشكيلة واسعة من المنتجات الطبيعية</h2>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">🌴
+                    <span class="product-badge" data-ar="الأكثر مبيعاً" data-en="Best Seller">الأكثر مبيعاً</span>
+                    <div class="price-badge">
+                        <span class="old-price">45 د.ل</span>
+                        <span class="current-price">38 د.ل</span>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <span class="product-category" data-ar="تمور فاخرة" data-en="Premium Dates">تمور فاخرة</span>
+                    <h3 data-ar="تمر الدقلة الفاخر" data-en="Premium Deglet Noor">تمر الدقلة الفاخر</h3>
+                    <p data-ar="تمور دقلة نور الفاخرة، حلوة المذاق وغنية بالعناصر الغذائية" data-en="Premium Deglet Noor dates, sweet and nutritious">تمور دقلة نور الفاخرة، حلوة المذاق وغنية بالعناصر الغذائية</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="decreaseQuantity(1)">-</button>
+                        <input type="number" id="qty-1" value="1" min="1" max="50">
+                        <button class="qty-btn" onclick="increaseQuantity(1)">+</button>
+                    </div>
+                    <div class="availability in-stock" data-ar="متوفر" data-en="In Stock">متوفر</div>
+                    <div class="product-footer">
+                        <div class="product-rating">⭐⭐⭐⭐⭐</div>
+                        <button class="product-btn" onclick="addToCart(1)" data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🌴
+                    <div class="price-badge">
+                        <span class="current-price">55 د.ل</span>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <span class="product-category" data-ar="تمور فاخرة" data-en="Premium Dates">تمور فاخرة</span>
+                    <h3 data-ar="تمر المجهول الملكي" data-en="Royal Medjool">تمر المجهول الملكي</h3>
+                    <p data-ar="ملك التمور، حجم كبير وطعم استثنائي لا يُنسى" data-en="King of dates, large size and unforgettable taste">ملك التمور، حجم كبير وطعم استثنائي لا يُنسى</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="decreaseQuantity(2)">-</button>
+                        <input type="number" id="qty-2" value="1" min="1" max="50">
+                        <button class="qty-btn" onclick="increaseQuantity(2)">+</button>
+                    </div>
+                    <div class="availability in-stock" data-ar="متوفر" data-en="In Stock">متوفر</div>
+                    <div class="product-footer">
+                        <div class="product-rating">⭐⭐⭐⭐⭐</div>
+                        <button class="product-btn" onclick="addToCart(2)" data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🫒
+                    <div class="price-badge">
+                        <span class="current-price">85 د.ل</span>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <span class="product-category" data-ar="زيوت" data-en="Oils">زيوت</span>
+                    <h3 data-ar="زيت زيتون بكر ممتاز" data-en="Extra Virgin Olive Oil">زيت زيتون بكر ممتاز</h3>
+                    <p data-ar="زيت زيتون ليبي أصيل، عصرة أولى على البارد، نقي 100%" data-en="Authentic Libyan olive oil, first cold press, 100% pure">زيت زيتون ليبي أصيل، عصرة أولى على البارد، نقي 100%</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="decreaseQuantity(3)">-</button>
+                        <input type="number" id="qty-3" value="1" min="1" max="50">
+                        <button class="qty-btn" onclick="increaseQuantity(3)">+</button>
+                    </div>
+                    <div class="availability in-stock" data-ar="متوفر" data-en="In Stock">متوفر</div>
+                    <div class="product-footer">
+                        <div class="product-rating">⭐⭐⭐⭐⭐</div>
+                        <button class="product-btn" onclick="addToCart(3)" data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🍯
+                    <div class="price-badge">
+                        <span class="current-price">65 د.ل</span>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <span class="product-category" data-ar="عسل" data-en="Honey">عسل</span>
+                    <h3 data-ar="عسل نحل طبيعي" data-en="Natural Bee Honey">عسل نحل طبيعي</h3>
+                    <p data-ar="عسل نحل طبيعي 100%، غير معالج حرارياً" data-en="100% natural bee honey, not heat treated">عسل نحل طبيعي 100%، غير معالج حرارياً</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="decreaseQuantity(4)">-</button>
+                        <input type="number" id="qty-4" value="1" min="1" max="50">
+                        <button class="qty-btn" onclick="increaseQuantity(4)">+</button>
+                    </div>
+                    <div class="availability in-stock" data-ar="متوفر" data-en="In Stock">متوفر</div>
+                    <div class="product-footer">
+                        <div class="product-rating">⭐⭐⭐⭐⭐</div>
+                        <button class="product-btn" onclick="addToCart(4)" data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🥜
+                    <div class="price-badge">
+                        <span class="current-price">35 د.ل</span>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <span class="product-category" data-ar="فواكه مجففة" data-en="Dried Fruits">فواكه مجففة</span>
+                    <h3 data-ar="تشكيلة فواكه مجففة" data-en="Dried Fruits Mix">تشكيلة فواكه مجففة</h3>
+                    <p data-ar="مشمش، تين، زبيب - طبيعية 100% بدون إضافات" data-en="Apricots, figs, raisins - 100% natural">مشمش، تين، زبيب - طبيعية 100% بدون إضافات</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="decreaseQuantity(5)">-</button>
+                        <input type="number" id="qty-5" value="1" min="1" max="50">
+                        <button class="qty-btn" onclick="increaseQuantity(5)">+</button>
+                    </div>
+                    <div class="availability in-stock" data-ar="متوفر" data-en="In Stock">متوفر</div>
+                    <div class="product-footer">
+                        <div class="product-rating">⭐⭐⭐⭐⭐</div>
+                        <button class="product-btn" onclick="addToCart(5)" data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🎁
+                    <span class="product-badge" data-ar="للهدايا" data-en="Gift">للهدايا</span>
+                    <div class="price-badge">
+                        <span class="current-price">120 د.ل</span>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <span class="product-category" data-ar="هدايا" data-en="Gifts">هدايا</span>
+                    <h3 data-ar="صندوق الهدايا الفاخر" data-en="Premium Gift Box">صندوق الهدايا الفاخر</h3>
+                    <p data-ar="تشكيلة فاخرة في صندوق أنيق - مثالي للمناسبات" data-en="Premium selection in elegant box - perfect for occasions">تشكيلة فاخرة في صندوق أنيق - مثالي للمناسبات</p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="decreaseQuantity(6)">-</button>
+                        <input type="number" id="qty-6" value="1" min="1" max="50">
+                        <button class="qty-btn" onclick="increaseQuantity(6)">+</button>
+                    </div>
+                    <div class="availability in-stock" data-ar="متوفر" data-en="In Stock">متوفر</div>
+                    <div class="product-footer">
+                        <div class="product-rating">⭐⭐⭐⭐⭐</div>
+                        <button class="product-btn" onclick="addToCart(6)" data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="shatla-store.jpg" alt="متجر شتلة ونخلة" loading="lazy" decoding="async">
+                <div class="about-badge"><h3 data-ar="سنوات" data-en="Years">سنوات</h3><p data-ar="من الخبرة" data-en="Experience">من الخبرة</p></div>
+            </div>
+            <div class="about-content">
+                <span class="section-tag"><span>🏪</span><span data-ar="من نحن" data-en="About">من نحن</span></span>
+                <h2 data-ar="شتلة ونخلة... جودة وأصالة" data-en="Shatla & Nakla... Quality & Authenticity">شتلة ونخلة... جودة وأصالة</h2>
+                <p data-ar="شركة ليبية متخصصة في تقديم أجود التمور والمنتجات الطبيعية. نفخر بتقديم منتجات عالية الجودة مختارة بعناية. زورونا في متجرنا بطرابلس." data-en="A Libyan company specialized in offering the finest dates and natural products. We're proud to provide carefully selected high-quality products. Visit our store in Tripoli.">شركة ليبية متخصصة في تقديم أجود التمور والمنتجات الطبيعية. نفخر بتقديم منتجات عالية الجودة مختارة بعناية. زورونا في متجرنا بطرابلس.</p>
+                <div class="about-features">
+                    <div class="about-feature"><div class="about-feature-icon">🌱</div><div><h4 data-ar="منتجات طبيعية" data-en="Natural Products">منتجات طبيعية</h4><p data-ar="100% بدون إضافات" data-en="100% no additives">100% بدون إضافات</p></div></div>
+                    <div class="about-feature"><div class="about-feature-icon">🏆</div><div><h4 data-ar="جودة مضمونة" data-en="Guaranteed Quality">جودة مضمونة</h4><p data-ar="أفضل المنتجات" data-en="Best products">أفضل المنتجات</p></div></div>
+                    <div class="about-feature"><div class="about-feature-icon">🚚</div><div><h4 data-ar="توصيل سريع" data-en="Fast Delivery">توصيل سريع</h4><p data-ar="لكل طرابلس" data-en="All Tripoli">لكل طرابلس</p></div></div>
+                    <div class="about-feature"><div class="about-feature-icon">💰</div><div><h4 data-ar="أسعار منافسة" data-en="Fair Prices">أسعار منافسة</h4><p data-ar="أفضل قيمة" data-en="Best value">أفضل قيمة</p></div></div>
+                </div>
+                <a href="https://wa.me/218920162005" class="btn btn-whatsapp" target="_blank"><span>📍</span><span data-ar="زورونا في المتجر" data-en="Visit Our Store">زورونا في المتجر</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos -->
+    <section class="videos" id="videos">
+        <div class="section-header">
+            <span class="section-tag"><span>🎬</span><span data-ar="شاهدونا" data-en="Watch">شاهدونا</span></span>
+            <h2 class="section-title" data-ar="تابعونا على تيك توك" data-en="Follow Us on TikTok">تابعونا على تيك توك</h2>
+            <p class="section-desc" data-ar="شاهدوا أحدث الفيديوهات والعروض" data-en="Watch our latest videos and offers">شاهدوا أحدث الفيديوهات والعروض</p>
+        </div>
+        <div class="video-wrapper"><video controls poster="shatla-store.jpg"><source src="shatla-video.mp4" type="video/mp4"></video></div>
+        <a href="https://www.tiktok.com/@reaidalsaosh" class="tiktok-btn" target="_blank"><span>🎵</span><span data-ar="تابعونا على تيك توك" data-en="Follow on TikTok">تابعونا على تيك توك</span><span>@reaidalsaosh</span></a>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <span class="section-tag"><span>✨</span><span data-ar="مميزاتنا" data-en="Why Us">مميزاتنا</span></span>
+            <h2 class="section-title" data-ar="لماذا شتلة ونخلة؟" data-en="Why Shatla & Nakla?">لماذا شتلة ونخلة؟</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card"><div class="feature-icon">🌱</div><h3 data-ar="منتجات طبيعية 100%" data-en="100% Natural">منتجات طبيعية 100%</h3><p data-ar="بدون إضافات أو مواد حافظة" data-en="No additives or preservatives">بدون إضافات أو مواد حافظة</p></div>
+            <div class="feature-card"><div class="feature-icon">🏆</div><h3 data-ar="جودة عالية" data-en="High Quality">جودة عالية</h3><p data-ar="نختار أفضل المنتجات" data-en="We select the best">نختار أفضل المنتجات</p></div>
+            <div class="feature-card"><div class="feature-icon">💰</div><h3 data-ar="أسعار منافسة" data-en="Fair Prices">أسعار منافسة</h3><p data-ar="أفضل قيمة مقابل السعر" data-en="Best value for money">أفضل قيمة مقابل السعر</p></div>
+            <div class="feature-card"><div class="feature-icon">🚚</div><h3 data-ar="توصيل سريع" data-en="Fast Delivery">توصيل سريع</h3><p data-ar="لجميع مناطق طرابلس" data-en="All Tripoli areas">لجميع مناطق طرابلس</p></div>
+            <div class="feature-card"><div class="feature-icon">🎁</div><h3 data-ar="تغليف هدايا" data-en="Gift Wrapping">تغليف هدايا</h3><p data-ar="تغليف أنيق للمناسبات" data-en="Elegant wrapping for occasions">تغليف أنيق للمناسبات</p></div>
+            <div class="feature-card"><div class="feature-icon">📦</div><h3 data-ar="طلبات بالجملة" data-en="Wholesale">طلبات بالجملة</h3><p data-ar="أسعار خاصة للشركات" data-en="Special prices for businesses">أسعار خاصة للشركات</p></div>
+        </div>
+    </section>
+
+    <!-- Occasions -->
+    <section class="occasions" id="occasions">
+        <div class="section-header">
+            <span class="section-tag"><span>🎊</span><span data-ar="المناسبات" data-en="Occasions">المناسبات</span></span>
+            <h2 class="section-title" data-ar="معكم في كل المناسبات" data-en="With You on Every Occasion">معكم في كل المناسبات</h2>
+        </div>
+        <div class="occasions-grid">
+            <div class="occasion-card"><div class="occasion-icon">🌙</div><h3 data-ar="رمضان والعيد" data-en="Ramadan & Eid">رمضان والعيد</h3><p data-ar="تمور للإفطار وهدايا للعيد" data-en="Dates for iftar and Eid gifts">تمور للإفطار وهدايا للعيد</p><a href="https://wa.me/218920162005?text=طلب لرمضان" class="occasion-btn" target="_blank"><span data-ar="اطلب الآن" data-en="Order">اطلب الآن</span><span>←</span></a></div>
+            <div class="occasion-card"><div class="occasion-icon">💒</div><h3 data-ar="الأعراس" data-en="Weddings">الأعراس</h3><p data-ar="توزيعات وضيافة فاخرة" data-en="Luxury favors and hospitality">توزيعات وضيافة فاخرة</p><a href="https://wa.me/218920162005?text=طلب للأعراس" class="occasion-btn" target="_blank"><span data-ar="اطلب الآن" data-en="Order">اطلب الآن</span><span>←</span></a></div>
+            <div class="occasion-card"><div class="occasion-icon">🏢</div><h3 data-ar="الشركات" data-en="Corporate">الشركات</h3><p data-ar="طلبات بالجملة بأسعار خاصة" data-en="Bulk orders at special prices">طلبات بالجملة بأسعار خاصة</p><a href="https://wa.me/218920162005?text=طلب بالجملة" class="occasion-btn" target="_blank"><span data-ar="اطلب الآن" data-en="Order">اطلب الآن</span><span>←</span></a></div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews" id="reviews">
+        <div class="section-header">
+            <span class="section-tag"><span>⭐</span><span data-ar="آراء العملاء" data-en="Reviews">آراء العملاء</span></span>
+            <h2 class="section-title" data-ar="ماذا يقول عملاؤنا" data-en="What Customers Say">ماذا يقول عملاؤنا</h2>
+        </div>
+        <div class="reviews-stats">
+            <div class="review-stat"><div class="review-stat-number">82%</div><div class="review-stat-label" data-ar="يوصون بنا" data-en="Recommend">يوصون بنا</div></div>
+            <div class="review-stat"><div class="review-stat-number">18+</div><div class="review-stat-label" data-ar="تقييم" data-en="Reviews">تقييم</div></div>
+            <div class="review-stat"><div class="review-stat-number">24/7</div><div class="review-stat-label" data-ar="متوفرون" data-en="Available">متوفرون</div></div>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card"><div class="review-stars">⭐⭐⭐⭐⭐</div><p class="review-text">"تمور ممتازة وجودة عالية، أنصح الجميع بالتعامل معهم"</p><div class="review-author"><div class="review-avatar">م</div><div><div class="review-name">محمد أحمد</div><div class="review-location">طرابلس</div></div></div></div>
+            <div class="review-card"><div class="review-stars">⭐⭐⭐⭐⭐</div><p class="review-text">"زيت الزيتون عندهم ممتاز، طعم أصلي ونقي"</p><div class="review-author"><div class="review-avatar">ف</div><div><div class="review-name">فاطمة سالم</div><div class="review-location">طرابلس</div></div></div></div>
+            <div class="review-card"><div class="review-stars">⭐⭐⭐⭐⭐</div><p class="review-text">"صندوق الهدايا كان فوق التوقعات! تغليف أنيق"</p><div class="review-author"><div class="review-avatar">أ</div><div><div class="review-name">أحمد علي</div><div class="review-location">طرابلس</div></div></div></div>
+        </div>
+        
+        <!-- Testimonial Form -->
+        <div class="testimonial-form">
+            <h3 data-ar="أضف رأيك" data-en="Add Your Review">أضف رأيك</h3>
+            <input type="text" placeholder="الاسم" data-ar-placeholder="الاسم" data-en-placeholder="Name">
+            <textarea placeholder="اكتب رأيك هنا..." data-ar-placeholder="اكتب رأيك هنا..." data-en-placeholder="Write your review..."></textarea>
+            <div class="star-rating">
+                <span onclick="rate(1)">★</span>
+                <span onclick="rate(2)">★</span>
+                <span onclick="rate(3)">★</span>
+                <span onclick="rate(4)">★</span>
+                <span onclick="rate(5)">★</span>
+            </div>
+            <button onclick="submitTestimonial()" data-ar="أرسل الرأي" data-en="Submit Review">أرسل الرأي</button>
+        </div>
+    </section>
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <span class="section-tag"><span>📍</span><span data-ar="تواصل معنا" data-en="Contact">تواصل معنا</span></span>
+            <h2 class="section-title" data-ar="نسعد بخدمتكم" data-en="Happy to Serve You">نسعد بخدمتكم</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3 data-ar="معلومات التواصل" data-en="Contact Info">معلومات التواصل</h3>
+                <p data-ar="تواصلوا معنا في أي وقت" data-en="Contact us anytime">تواصلوا معنا في أي وقت</p>
+                <div class="contact-item"><div class="contact-icon">📍</div><div class="contact-text"><h4 data-ar="العنوان" data-en="Address">العنوان</h4><p>طرابلس، ليبيا</p></div></div>
+                <div class="contact-item"><div class="contact-icon">📱</div><div class="contact-text"><h4 data-ar="الهاتف" data-en="Phone">الهاتف</h4><p><a href="tel:+218920162005">+218 92-016-2005</a></p></div></div>
+                <div class="contact-item"><div class="contact-icon">✉️</div><div class="contact-text"><h4 data-ar="البريد" data-en="Email">البريد</h4><p><a href="mailto:alshawshr012@gmail.com">alshawshr012@gmail.com</a></p></div></div>
+                <div class="contact-item"><div class="contact-icon">🕐</div><div class="contact-text"><h4 data-ar="ساعات العمل" data-en="Hours">ساعات العمل</h4><p data-ar="متوفرون دائماً" data-en="Always Available">متوفرون دائماً</p></div></div>
+                <div class="contact-social">
+                    <a href="https://www.facebook.com/people/%D8%B4%D8%B1%D9%83%D8%A9-%D8%B4%D8%AA%D9%84%D9%87-%D9%88%D9%86%D8%AE%D9%84%D8%A9-%D9%84%D8%A3%D8%AC%D9%88%D8%AF-%D8%A7%D9%86%D9%88%D8%A7%D8%B9-%D8%A7%D9%84%D8%AA%D9%85%D9%88%D8%B1/100054524377939/" class="social-btn" target="_blank">📘</a>
+                    <a href="https://www.tiktok.com/@reaidalsaosh" class="social-btn" target="_blank">🎵</a>
+                    <a href="https://wa.me/218920162005" class="social-btn" target="_blank">💬</a>
+                </div>
+            </div>
+            <div class="contact-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217867.85879048538!2d13.017539899999999!3d32.8829164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13a892c46f1f1b9b%3A0x331c47c7a7f7a0e6!2sTripoli%2C%20Libya!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe></div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <div class="final-cta">
+        <h2 data-ar="اطلب الآن من شتلة ونخلة" data-en="Order Now from Shatla & Nakla">اطلب الآن من شتلة ونخلة</h2>
+        <p data-ar="تواصل معنا مباشرة على واتساب لإتمام طلبك بسرعة" data-en="Contact us directly on WhatsApp to complete your order quickly">تواصل معنا مباشرة على واتساب لإتمام طلبك بسرعة</p>
+        <div class="cta-buttons">
+            <a href="https://wa.me/218920162005?text=أريد الطلب من شتلة ونخلة" class="btn btn-whatsapp" target="_blank">
+                <span>💬</span>
+                <span data-ar="اطلب الآن" data-en="Order Now">اطلب الآن</span>
+            </a>
+            <button onclick="showDemo()" class="btn btn-secondary">
+                <span>🎥</span>
+                <span data-ar="شاهد عرض توضيحي" data-en="Watch Demo">شاهد عرض توضيحي</span>
+            </button>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand"><img src="shatla-logo.jpg" alt="شتلة ونخلة" loading="lazy" decoding="async"><p data-ar="شركة شتلة ونخلة لأجود أنواع التمور والمنتجات الطبيعية" data-en="Shatla & Nakla for finest dates and natural products">شركة شتلة ونخلة لأجود أنواع التمور والمنتجات الطبيعية</p></div>
+            <div class="footer-column"><h4 data-ar="المنتجات" data-en="Products">المنتجات</h4><ul><li><a href="#products">التمور</a></li><li><a href="#products">زيت الزيتون</a></li><li><a href="#products">العسل</a></li><li><a href="#products">فواكه مجففة</a></li></ul></div>
+            <div class="footer-column"><h4 data-ar="روابط" data-en="Links">روابط</h4><ul><li><a href="#home">الرئيسية</a></li><li><a href="#about">من نحن</a></li></ul></div>
+            <div class="footer-column"><h4 data-ar="تواصل" data-en="Contact">تواصل</h4><ul><li><a href="tel:+218920162005">+218 92-016-2005</a></li><li><a href="mailto:alshawshr012@gmail.com">alshawshr012@gmail.com</a></li><li><a href="https://wa.me/218920162005">واتساب</a></li></ul></div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 شتلة ونخلة. جميع الحقوق محفوظة</p>
+            <div class="powered-by">تصميم <a href="#">نُظُم | Nuzum</a></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Initialization
+        window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('hidden'), 250));
+        setTimeout(() => {
+            const loader = document.getElementById('loader');
+            if (loader) loader.classList.add('hidden');
+        }, 2500);
+        let isArabic = true;
+        let cart = [];
+        let currentRating = 0;
+
+        // Language toggle
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            document.getElementById('langText').textContent = isArabic ? 'EN' : 'عربي';
+            document.body.classList.toggle('en', !isArabic);
+            document.documentElement.setAttribute('lang', isArabic ? 'ar' : 'en');
+            document.documentElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
+            document.querySelectorAll('[data-ar][data-en]').forEach(el => el.textContent = isArabic ? el.dataset.ar : el.dataset.en);
+            document.querySelectorAll('[data-ar-placeholder][data-en-placeholder]').forEach(el => {
+                el.placeholder = isArabic ? el.dataset.arPlaceholder : el.dataset.enPlaceholder;
+            });
+        }
+
+        // Mobile menu
+        function toggleMenu() { 
+            document.getElementById('navLinks').classList.toggle('active'); 
+        }
+
+        // Cart functionality
+        function openCart() {
+            document.getElementById('cartModal').style.display = 'flex';
+            updateCartDisplay();
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            const cartCount = document.getElementById('cartCount');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `<p style="text-align:center;color:var(--text-muted);">${isArabic ? 'السلة فارغة' : 'Cart is empty'}</p>`;
+                cartTotal.textContent = '0 د.ل';
+                cartCount.textContent = '0';
+                return;
+            }
+
+            let total = 0;
+            let itemsHTML = '';
+            
+            const products = [
+                { id: 1, nameAr: 'تمر الدقلة الفاخر', nameEn: 'Premium Deglet Noor', price: 38 },
+                { id: 2, nameAr: 'تمر المجهول الملكي', nameEn: 'Royal Medjool', price: 55 },
+                { id: 3, nameAr: 'زيت زيتون بكر ممتاز', nameEn: 'Extra Virgin Olive Oil', price: 85 },
+                { id: 4, nameAr: 'عسل نحل طبيعي', nameEn: 'Natural Bee Honey', price: 65 },
+                { id: 5, nameAr: 'تشكيلة فواكه مجففة', nameEn: 'Dried Fruits Mix', price: 35 },
+                { id: 6, nameAr: 'صندوق الهدايا الفاخر', nameEn: 'Premium Gift Box', price: 120 }
+            ];
+
+            cart.forEach(item => {
+                const product = products.find(p => p.id === item.id);
+                const subtotal = product.price * item.quantity;
+                total += subtotal;
+                
+                itemsHTML += `
+                    <div class="cart-item">
+                        <div>
+                            <strong>${isArabic ? product.nameAr : product.nameEn}</strong>
+                            <div style="font-size:0.9rem;color:var(--text-muted);">${item.quantity} × ${product.price} د.ل</div>
+                        </div>
+                        <div>
+                            <strong>${subtotal} د.ل</strong>
+                            <button onclick="removeFromCart(${item.id})" style="background:none;border:none;color:#c0392b;cursor:pointer;margin-right:10px;">✕</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItems.innerHTML = itemsHTML;
+            cartTotal.textContent = `${total} د.ل`;
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        function addToCart(productId) {
+            const quantity = parseInt(document.getElementById(`qty-${productId}`).value);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({ id: productId, quantity: quantity });
+            }
+            
+            updateCartDisplay();
+            
+            // Show confirmation
+            Swal.fire({
+                icon: 'success',
+                title: isArabic ? 'تمت الإضافة للسلة' : 'Added to Cart',
+                text: isArabic ? 'تم إضافة المنتج إلى سلة التسوق' : 'Product added to shopping cart',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartDisplay();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: isArabic ? 'السلة فارغة' : 'Cart is empty',
+                    text: isArabic ? 'يرجى إضافة منتجات أولاً' : 'Please add products first',
+                });
+                return;
+            }
+
+            const products = [
+                { id: 1, nameAr: 'تمر الدقلة الفاخر', nameEn: 'Premium Deglet Noor' },
+                { id: 2, nameAr: 'تمر المجهول الملكي', nameEn: 'Royal Medjool' },
+                { id: 3, nameAr: 'زيت زيتون بكر ممتاز', nameEn: 'Extra Virgin Olive Oil' },
+                { id: 4, nameAr: 'عسل نحل طبيعي', nameEn: 'Natural Bee Honey' },
+                { id: 5, nameAr: 'تشكيلة فواكه مجففة', nameEn: 'Dried Fruits Mix' },
+                { id: 6, nameAr: 'صندوق الهدايا الفاخر', nameEn: 'Premium Gift Box' }
+            ];
+
+            let message = isArabic ? 'مرحباً، أريد طلب:\n' : 'Hello, I want to order:\n';
+            
+            cart.forEach(item => {
+                const product = products.find(p => p.id === item.id);
+                message += `- ${isArabic ? product.nameAr : product.nameEn}: ${item.quantity}\n`;
+            });
+
+            window.open(`https://wa.me/218920162005?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Quantity controls
+        function increaseQuantity(productId) {
+            const input = document.getElementById(`qty-${productId}`);
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decreaseQuantity(productId) {
+            const input = document.getElementById(`qty-${productId}`);
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        // Demo showcase
+        function showDemo() {
+            Swal.fire({
+                title: isArabic ? 'عرض توضيحي' : 'Website Demo',
+                html: `
+                    <div style="text-align:center;padding:20px 0;">
+                        <div style="font-size:4rem;color:var(--gold);margin-bottom:20px;">🖥️</div>
+                        <h3 style="color:var(--brown);margin-bottom:15px;">${isArabic ? 'كيف يعمل الموقع؟' : 'How the Website Works?'}</h3>
+                        <p style="color:var(--text-secondary);max-width:400px;margin:0 auto;">
+                            ${isArabic ? 
+                                'استعرض تجربة التصفح، اختيار المنتجات، وإرسال الطلب مباشرة عبر واتساب.' : 
+                                'Explore browsing products, selecting quantities, and sending orders directly via WhatsApp.'}
+                        </p>
+                    </div>
+                `,
+                showConfirmButton: true,
+                confirmButtonText: isArabic ? 'حسناً' : 'OK',
+                confirmButtonColor: '#c9a227'
+            });
+        }
+
+        // Testimonial system
+        function rate(stars) {
+            currentRating = stars;
+            document.querySelectorAll('.star-rating span').forEach((span, index) => {
+                span.classList.toggle('active', index < stars);
+            });
+        }
+
+        function submitTestimonial() {
+            const name = document.querySelector('.testimonial-form input').value;
+            const text = document.querySelector('.testimonial-form textarea').value;
+            
+            if (!name || !text || currentRating === 0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: isArabic ? 'يرجى ملء جميع الحقول' : 'Please fill all fields',
+                    text: isArabic ? 'الاسم، الرأي، والتقييم مطلوبون' : 'Name, review, and rating are required',
+                });
+                return;
+            }
+
+            Swal.fire({
+                icon: 'success',
+                title: isArabic ? 'شكراً لك!' : 'Thank You!',
+                text: isArabic ? 'تم إرسال رأيك بنجاح' : 'Your review has been submitted',
+                timer: 2000,
+                showConfirmButton: false
+            });
+
+            // Clear form
+            document.querySelector('.testimonial-form input').value = '';
+            document.querySelector('.testimonial-form textarea').value = '';
+            document.querySelectorAll('.star-rating span').forEach(span => span.classList.remove('active'));
+            currentRating = 0;
+        }
+
+        // Navigation scroll effect
+        let navTicking = false;
+        window.addEventListener('scroll', () => {
+            if (navTicking) return;
+            navTicking = true;
+            window.requestAnimationFrame(() => {
+                document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+                navTicking = false;
+            });
+        }, { passive: true });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({behavior:'smooth'});
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Animation on scroll
+        const revealTargets = document.querySelectorAll('.product-card,.feature-card,.occasion-card,.review-card,.about-feature,.review-stat,.contact-info,.contact-map,.final-cta');
+        revealTargets.forEach(el => el.classList.add('reveal'));
+
+        if ('IntersectionObserver' in window) {
+            const obs = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+            revealTargets.forEach(el => obs.observe(el));
+        } else {
+            revealTargets.forEach(el => el.classList.add('is-visible'));
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('cartModal');
+            if(e.target === modal) {
+                closeCart();
+            }
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCart();
+        });
+
+        // Initialize rating stars
+        document.querySelectorAll('.star-rating span').forEach((span, index) => {
+            span.addEventListener('click', () => rate(index + 1));
+        });
+    </script>
+</body>
+</html>
+

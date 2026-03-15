@@ -1,0 +1,1158 @@
+﻿<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطة عمل استثمارية - شركة شتلة ونخلة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0b7a55;
+            --primary-dark: #0f172a;
+            --secondary: #0f766e;
+            --secondary-light: #ccfbf1;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #475569;
+            --shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 55%, #e6fffa 100%);
+            min-height: 100vh;
+        }
+        
+        .document-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header:before {
+            content: '🌴';
+            position: absolute;
+            font-size: 300px;
+            opacity: 0.05;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h2 {
+            font-size: 24px;
+            color: var(--secondary-light);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background: rgba(255,255,255,0.15);
+            padding: 12px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Navigation */
+        .nav-bar {
+            background: var(--light);
+            padding: 15px;
+            border-bottom: 2px solid var(--secondary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: var(--gray);
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 40px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:nth-child(even) {
+            background: var(--light);
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 28px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-title i {
+            color: var(--secondary);
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--secondary);
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        /* Tables */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .comparison-table th {
+            background: var(--primary);
+            color: white;
+            padding: 18px 15px;
+            text-align: right;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            border: 1px solid #eee;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .check {
+            color: #2ecc71;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .cross {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        /* Highlight Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, #fff9e6, #fff3cc);
+            border-right: 5px solid var(--secondary);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .highlight-box h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-right: 50px;
+            margin: 40px 0;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            right: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            right: -53px;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            border: 5px solid var(--secondary);
+            box-shadow: 0 0 0 3px white;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-right: 3px solid var(--primary);
+        }
+        
+        .timeline-date {
+            color: var(--secondary);
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Investment Section */
+        .investment-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .pricing-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .pricing-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--secondary-light);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .pricing-card.featured:before {
+            content: 'الأكثر طلباً';
+            position: absolute;
+            top: -12px;
+            right: 50%;
+            transform: translateX(50%);
+            background: var(--secondary-light);
+            color: var(--primary-dark);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .pricing-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--secondary-light);
+        }
+        
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 800;
+            color: white;
+            margin: 15px 0;
+        }
+        
+        .pricing-price span {
+            font-size: 20px;
+            color: #ccc;
+        }
+        
+        .pricing-features {
+            text-align: right;
+            margin: 25px 0;
+            list-style: none;
+            min-height: 300px;
+        }
+        
+        .pricing-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            padding-right: 35px;
+        }
+        
+        .pricing-features li:before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: var(--secondary-light);
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        /* Guarantees */
+        .guarantees {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .guarantee-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--secondary);
+        }
+
+        .guarantee-card h4 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .guarantee-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        .guarantee-icon {
+            font-size: 40px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        /* Call to Action */
+        .cta-section {
+            text-align: center;
+            padding: 50px 40px;
+            background: linear-gradient(135deg, #25D366, #1da851);
+            color: white;
+        }
+        
+        .cta-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .cta-btn.whatsapp {
+            background: white;
+            color: #25D366;
+        }
+        
+        .cta-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #e5e7eb;
+        }
+        
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--secondary-light);
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section {
+                padding: 25px 20px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .header h2 {
+                font-size: 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .timeline {
+                padding-right: 30px;
+            }
+            
+            .timeline:before {
+                right: 8px;
+            }
+            
+            .timeline-item:before {
+                right: -38px;
+                width: 25px;
+                height: 25px;
+            }
+            
+            .nav-links {
+                gap: 10px;
+            }
+            
+            .nav-link {
+                padding: 6px 15px;
+                font-size: 14px;
+            }
+            
+            .pricing-tiers {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-price {
+                font-size: 36px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Print styles */
+        @media print {
+            .nav-bar, .cta-section, .footer {
+                display: none;
+            }
+            
+            .document-container {
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="document-container" id="document">
+        <!-- Header -->
+        <div class="header">
+            <h1>📊 خطة عمل استثمارية</h1>
+            <h2>شركة شتلة ونخلة للتمور والمنتجات الطبيعية</h2>
+            <p>خطة تشغيل رقمية لتحسين تجربة الطلب ونمو المبيعات - وثيقة عمل تنفيذية</p>
+            
+            <div class="header-meta">
+                <div class="meta-item">📅 فبراير 2026</div>
+                <div class="meta-item">🔒 وثيقة سرية</div>
+                <div class="meta-item">💰 دراسة جدوى مالية</div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-bar">
+            <div class="nav-links">
+                <a href="#summary" class="nav-link active"><i class="fas fa-chart-line"></i> الملخص</a>
+                <a href="#analysis" class="nav-link"><i class="fas fa-chart-bar"></i> التحليل</a>
+                <a href="#delivery" class="nav-link"><i class="fas fa-truck"></i> خيارات التوصيل</a>
+                <a href="#financial" class="nav-link"><i class="fas fa-money-bill-wave"></i> المالية</a>
+                <a href="#strategy" class="nav-link"><i class="fas fa-chess"></i> الاستراتيجية</a>
+                <a href="#investment" class="nav-link"><i class="fas fa-handshake"></i> الباقات والأسعار</a>
+                </div>
+        </div>
+        
+        <!-- Executive Summary -->
+        <div class="section" id="summary">
+            <div class="section-title">
+                <i class="fas fa-bullseye"></i>
+                <span>الملخص التنفيذي</span>
+            </div>
+            
+            <div class="highlight-box">
+                <h3><i class="fas fa-gem"></i> الفرصة الرقمية الحالية</h3>
+                <p>تمتلك شركة "شتلة ونخلة" أحد أكبر الأصول الرقمية في ليبيا: <strong>أكثر من 1,000,000 متابع على وسائل التواصل الاجتماعي</strong> مع فروع متوسعة ومبيعات قوية. هذا الحضور الرقمي يمثل فرصة قابلة للتحسين عبر قناة بيع منظمة.</p>
+                
+                <p><strong>الميزات الحالية:</strong><br>
+                • 1,000,000+ متابع على وسائل التواصل الاجتماعي<br>
+                • مبيعات قوية وثابتة<br>
+                • فرعان نشطان (الفرع الثاني تم افتتاحه حديثاً)<br>
+                • منتجات عالية الجودة وطلب مستمر</p>
+                
+                <p><strong>الحل المقترح:</strong> موقع إلكتروني متكامل مع خيارات متعددة يحول 1% من المتابعين إلى عملاء<br>
+                <strong>سيناريو نمو افتراضي:</strong> 10,000 عميل جديد × 50 دينار = <strong>500,000 دينار إيرادات إضافية</strong></p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">1,000,000+</div>
+                    <div class="stat-label">متابع على وسائل التواصل</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">35% - 90%</div>
+                    <div class="stat-label">نطاق العائد المتوقع (تقديري)</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">50,000+</div>
+                    <div class="stat-label">دينار أثر سنوي محتمل</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">2 فرع</div>
+                    <div class="stat-label">نشطين ومبيعات قوية</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Current Analysis -->
+        <div class="section" id="analysis">
+            <div class="section-title">
+                <i class="fas fa-search"></i>
+                <span>تحليل الوضع الحالي</span>
+            </div>
+            
+            <h3><i class="fas fa-thumbs-up"></i> نقاط القوة (الأصول الحالية)</h3>
+            <ul style="margin: 20px 0 30px 40px; color: var(--gray);">
+                <li style="margin-bottom: 10px;"><strong>جمهور ضخم:</strong> 1,000,000+ متابع = 1,000,000 عميل محتمل</li>
+                <li style="margin-bottom: 10px;"><strong>مصداقية عالية:</strong> تفاعل إيجابي وثقة من المتابعين</li>
+                <li style="margin-bottom: 10px;"><strong>مبيعات قوية:</strong> منتجات أساسية وطلب مستمر</li>
+                <li style="margin-bottom: 10px;"><strong>فروع متعددة:</strong> فرعين نشطين (تم افتتاح الثاني حديثاً)</li>
+                <li><strong>وجود رقمي قوي:</strong> صفحات نشطة على وسائل التواصل</li>
+            </ul>
+            
+            <h3><i class="fas fa-exclamation-triangle"></i> الفرص الضائعة (بدون موقع)</h3>
+            <ul style="margin: 20px 0 30px 40px; color: var(--gray);">
+                <li style="margin-bottom: 10px;"><strong>تحويل ضعيف:</strong> 0.01% فقط من المتابعين يتحولون إلى عملاء</li>
+                <li style="margin-bottom: 10px;"><strong>عمل يدوي:</strong> إهدار وقت في الرد على نفس الاستفسارات</li>
+                <li style="margin-bottom: 10px;"><strong>فقدان العملاء:</strong> لا يوجد نظام متابعة للعملاء السابقين</li>
+                <li style="margin-bottom: 10px;"><strong>محدودية الوقت:</strong> لا يمكن البيع أو الرد على الاستفسارات 24/7</li>
+                <li><strong>عدم الاستفادة من البيانات:</strong> لا تعرف ما ينجح وما لا ينجح</li>
+            </ul>
+        </div>
+        
+        <!-- Delivery Options -->
+        <div class="section" id="delivery">
+            <div class="section-title">
+                <i class="fas fa-truck"></i>
+                <span>خيارات التوصيل والتسليم</span>
+            </div>
+            
+            <h3>🚚 النظام الحالي (الاستلام من الفروع)</h3>
+            <p style="margin: 15px 0 25px; color: var(--gray);">حالياً، العملاء يقومون بزيارة الفروع للحصول على منتجاتهم. النظام المقترح سيعزز هذه العملية ويضيف خيارات جديدة.</p>
+            
+            <h3>🎯 الخيار 1: نظام الحجز المسبق (بدون توصيل)</h3>
+            <div class="highlight-box">
+                <h4><i class="fas fa-calendar-check"></i> المميزات:</h4>
+                <ul style="margin: 15px 0 15px 40px; color: var(--gray);">
+                    <li style="margin-bottom: 10px;">حجز المنتجات مسبقاً عبر الموقع أو الواتساب</li>
+                    <li style="margin-bottom: 10px;">تجهيز الطلب قبل وصول العميل</li>
+                    <li style="margin-bottom: 10px;">توفير الوقت وتقليل الانتظار في الفروع</li>
+                    <li style="margin-bottom: 10px;">إشعارات تلقائية عند جاهزية الطلب</li>
+                    <li>تكلفة أقل وتناسب العميل المحلي</li>
+                </ul>
+            </div>
+            
+            <h3>🚀 الخيار 2: نظام توصيل متكامل</h3>
+            <div class="timeline fade-in">
+                <div class="timeline-item">
+                    <div class="timeline-date"><i class="fas fa-mobile-alt"></i> الطلب</div>
+                    <div class="timeline-content">
+                        العميل يطلب عبر الموقع/الواتساب - يحدد العنوان ورقم الهاتف
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date"><i class="fas fa-box"></i> التجهيز</div>
+                    <div class="timeline-content">
+                        إشعار تلقائي للطاقم لتجهيز الطلب - نظام تتبع للحالة
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date"><i class="fas fa-user-tie"></i> التوصيل</div>
+                    <div class="timeline-content">
+                        <strong>الخيار أ:</strong> اتصال مباشر بين العميل والسائق عبر واتساب<br>
+                        <strong>الخيار ب:</strong> نظام أوتوماتيكي - إشعار للسائق دون حاجة للتواصل المباشر
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date"><i class="fas fa-check-circle"></i> التسليم</div>
+                    <div class="timeline-content">
+                        تسليم الطلب - تأكيد إلكتروني - تقييم الخدمة
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px; font-size: 18px; color: var(--primary);">
+                <strong>يمكنك اختيار أي من هذه الخيارات أو كليهما، وسأقوم بتنفيذ ما يناسب عملك</strong>
+            </p>
+        </div>
+        
+        <!-- Financial Projections -->
+        <div class="section" id="financial">
+            <div class="section-title">
+                <i class="fas fa-calculator"></i>
+                <span>التوقعات المالية والتحليل</span>
+            </div>
+            
+            <h3>📈 مقارنة بين الوضع الحالي والمتوقع</h3>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>المؤشر</th>
+                        <th>بدون موقع</th>
+                        <th>مع الموقع</th>
+                        <th>الزيادة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>الطلبات الأسبوعية</td>
+                        <td>120 طلب</td>
+                        <td>250 طلب</td>
+                        <td style="color: var(--primary); font-weight: bold;">+108%</td>
+                    </tr>
+                    <tr>
+                        <td>متوسط سعر الطلب</td>
+                        <td>55 د.ل</td>
+                        <td>55 د.ل</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>الإيرادات الأسبوعية</td>
+                        <td>6,600 د.ل</td>
+                        <td>13,750 د.ل</td>
+                        <td>+7,150 د.ل</td>
+                    </tr>
+                    <tr>
+                        <td>الإيرادات الشهرية</td>
+                        <td>26,400 د.ل</td>
+                        <td>55,000 د.ل</td>
+                        <td>+28,600 د.ل</td>
+                    </tr>
+                    <tr>
+                        <td><strong>الإيرادات السنوية</strong></td>
+                        <td><strong>316,800 د.ل</strong></td>
+                        <td><strong>660,000 د.ل</strong></td>
+                        <td style="color: var(--secondary); font-weight: bold; font-size: 18px;">+343,200 د.ل</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="highlight-box fade-in">
+                <h3><i class="fas fa-chart-pie"></i> تقدير الأثر المالي</h3>
+                <p><strong>الاستثمار الأولي:</strong> 3,500 - 6,500 دينار (حسب الباقة المختارة)<br>
+                <strong>تحسن الإيراد السنوي (سيناريو تقديري):</strong> حتى 343,200 دينار<br>
+                <strong>ملاحظة:</strong> الأرقام تقديرية وتعتمد على التنفيذ، التسعير، المخزون، وجودة التشغيل.</p>
+                <p><strong>معدل الاسترداد:</strong> أقل من شهر واحد</p>
+            </div>
+        </div>
+        
+        <!-- Transformation Strategy -->
+        <div class="section" id="strategy">
+            <div class="section-title">
+                <i class="fas fa-chess-board"></i>
+                <span>استراتيجية تحويل المتابعين إلى أرباح</span>
+            </div>
+            
+            <h3><i class="fas fa-bullseye"></i> المرحلة الأولى: تحويل 1% من المتابعين (10,000 عميل)</h3>
+            
+            <div class="stats-grid" style="margin: 25px 0;">
+                <div class="stat-card">
+                    <div class="stat-number">1,000,000</div>
+                    <div class="stat-label">متابع على وسائل التواصل</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1%</div>
+                    <div class="stat-label">معدل التحويل المستهدف</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10,000</div>
+                    <div class="stat-label">عميل جديد</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">550,000 د.ل</div>
+                    <div class="stat-label">إيرادات من هذه الخطوة</div>
+                </div>
+            </div>
+            
+            <h3><i class="fas fa-sync-alt"></i> نظام المتابعة التلقائية (زيادة المبيعات المتكررة 45%)</h3>
+            
+            <div class="timeline fade-in">
+                <div class="timeline-item">
+                    <div class="timeline-date"><i class="far fa-calendar-check"></i> اليوم 1</div>
+                    <div class="timeline-content">
+                        تأكيد الطلب وشكر العميل على الشراء
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date"><i class="far fa-calendar-check"></i> اليوم 3</div>
+                    <div class="timeline-content">
+                        استفسار عن جودة المنتج وبناء علاقة ولاء
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date"><i class="far fa-calendar-check"></i> اليوم 7</div>
+                    <div class="timeline-content">
+                        عرض خاص لإعادة الشراء (45% معدل استجابة)
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date"><i class="far fa-calendar-check"></i> اليوم 30</div>
+                    <div class="timeline-content">
+                        تذكير بمنتج جديد أو عرض موسمي
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px; font-size: 18px; color: var(--primary);">
+                <strong>النتيجة النهائية:</strong> كل عميل يشتري 3 مرات بدلاً من مرة واحدة
+            </p>
+        </div>
+        
+        <!-- Competitive Advantage -->
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-trophy"></i>
+                <span>الميزة التنافسية</span>
+            </div>
+            
+            <h3>⚔️ كيف ستتغلب على منافسيك الذين ليس لهم مواقع؟</h3>
+            
+            <table class="comparison-table fade-in">
+                <thead>
+                    <tr>
+                        <th>الميزة</th>
+                        <th>شتلة ونخلة (مع الموقع)</th>
+                        <th>المنافسون (بدون مواقع)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>التسويق 24/7</td>
+                        <td><span class="check">✓ متاح</span></td>
+                        <td><span class="cross">✗ غير متاح</span></td>
+                    </tr>
+                    <tr>
+                        <td>الطلبات عبر الإنترنت</td>
+                        <td><span class="check">✓ متاح</span></td>
+                        <td><span class="cross">✗ غير متاح</span></td>
+                    </tr>
+                    <tr>
+                        <td>الحجز المسبق</td>
+                        <td><span class="check">✓ متاح</span></td>
+                        <td><span class="cross">✗ غير متاح</span></td>
+                    </tr>
+                    <tr>
+                        <td>نظام التوصيل</td>
+                        <td><span class="check">✓ خياري</span></td>
+                        <td><span class="cross">✗ غير متاح</span></td>
+                    </tr>
+                    <tr>
+                        <td>المصداقية والاحترافية</td>
+                        <td><span class="check">✓ عالية</span></td>
+                        <td><span class="cross">✗ محدودة</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="highlight-box" style="margin-top: 30px;">
+                <h3><i class="fas fa-crown"></i> الخلاصة</h3>
+                <p>مع هذا الموقع، ستحصل الشركة على قناة بيع رقمية منظمة تعمل باستمرار، وتدعم فريق المبيعات في الوصول للعملاء بشكل أسرع وأكثر وضوحًا.</p>
+            </div>
+        </div>
+        
+        <!-- Investment Section -->
+        <div class="investment-section" id="investment">
+            <h2 style="font-size: 32px; margin-bottom: 20px;"><i class="fas fa-hand-holding-usd"></i> الباقات والأسعار</h2>
+            <p style="font-size: 18px; margin-bottom: 20px; opacity: 0.9;">اختر الباقة التي تناسب احتياجاتك - أسعار معقولة تناسب كل ميزانية</p>
+            
+            <div class="pricing-tiers">
+                <div class="pricing-card fade-in">
+                    <div class="pricing-title">الباقة الأساسية</div>
+                    <div class="pricing-price">4,500 <span>د.ل</span></div>
+                    <p style="font-size: 16px; margin-bottom: 20px; color: #ccc;">موقع إلكتروني احترافي</p>
+                    
+                    <ul class="pricing-features">
+                        <li>تصميم موقع احترافي متجاوب</li>
+                        <li>عرض المنتجات والأسعار</li>
+                        <li>نظام حجز مسبق للطلبات</li>
+                        <li>لوحة تحكم لإدارة المبيعات</li>
+                        <li>ربط مع صفحات التواصل</li>
+                        <li>تحسين محركات البحث (SEO)</li>
+                        <li>تدريب أساسي للطاقم</li>
+                        <li>دعم فني لمدة 3 أشهر</li>
+                        <li style="color: #ff9999; font-weight: bold;">بدون نظام توصيل</li>
+                    </ul>
+                    
+                    <a href="https://wa.me/218920162005?text=أريد الباقة الأساسية ب 4,500 دينار" class="cta-btn secondary" style="margin-top: 20px; padding: 10px 25px; font-size: 16px;">
+                        <i class="fab fa-whatsapp"></i>
+                        اختر هذه الباقة
+                    </a>
+                </div>
+                
+                <div class="pricing-card featured fade-in">
+                    <div class="pricing-title">الباقة المتوسطة</div>
+                    <div class="pricing-price">7,500 <span>د.ل</span></div>
+                    <p style="font-size: 16px; margin-bottom: 20px; color: #ccc;">موقع + نظام توصيل بسيط</p>
+                    
+                    <ul class="pricing-features">
+                        <li>كل مزايا الباقة الأساسية</li>
+                        <li>نظام توصيل عبر الواتساب</li>
+                        <li>اتصال مباشر بين العميل والسائق</li>
+                        <li>نظام تتبع الطلبات البسيط</li>
+                        <li>إشعارات تلقائية للطاقم</li>
+                        <li>إدارة السائقين عبر واتساب</li>
+                        <li>تدريب متقدم للطاقم</li>
+                        <li>دعم فني لمدة 6 أشهر</li>
+                        <li style="color: var(--secondary-light); font-weight: bold;">الأكثر طلباً</li>
+                    </ul>
+                    
+                    <a href="https://wa.me/218920162005?text=أريد الباقة المتوسطة ب 7,500 دينار" class="cta-btn" style="margin-top: 20px; padding: 10px 25px; font-size: 16px; background: white; color: var(--primary);">
+                        <i class="fab fa-whatsapp"></i>
+                        اختر هذه الباقة
+                    </a>
+                </div>
+                
+                <div class="pricing-card fade-in">
+                    <div class="pricing-title">الباقة المتكاملة</div>
+                    <div class="pricing-price">10,000 <span>د.ل</span></div>
+                    <p style="font-size: 16px; margin-bottom: 20px; color: #ccc;">نظام متكامل بالتوصيل الأوتوماتيكي</p>
+                    
+                    <ul class="pricing-features">
+                        <li>كل مزايا الباقة المتوسطة</li>
+                        <li>نظام توصيل أوتوماتيكي كامل</li>
+                        <li>لوحة تحكم خاصة للسائقين</li>
+                        <li>تتبع الطلبات في الوقت الحقيقي</li>
+                        <li>تحديد العناوين على الخريطة</li>
+                        <li>تقييم العملاء للسائقين</li>
+                        <li>تقارير وأدوات تحليلية</li>
+                        <li>دعم فني لمدة سنة كاملة</li>
+                        <li style="color: var(--secondary-light); font-weight: bold;">الأكثر تطوراً</li>
+                    </ul>
+                    
+                    <a href="https://wa.me/218920162005?text=أريد الباقة المتكاملة ب 10,000 دينار" class="cta-btn secondary" style="margin-top: 20px; padding: 10px 25px; font-size: 16px;">
+                        <i class="fab fa-whatsapp"></i>
+                        اختر هذه الباقة
+                    </a>
+                </div>
+            </div>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; margin-top: 40px;">
+                <h3 style="color: var(--secondary-light); margin-bottom: 15px;">🛠️ باقة الصيانة والدعم المستمر</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                    <div style="text-align: right;">
+                        <h4 style="margin-bottom: 10px;">خدمات الباقة:</h4>
+                        <p style="color: #ccc; margin-bottom: 5px;">• تجديد النطاق والاستضافة سنوياً</p>
+                        <p style="color: #ccc; margin-bottom: 5px;">• تحديثات أمنية دورية</p>
+                        <p style="color: #ccc; margin-bottom: 5px;">• دعم فني سريع 24/7</p>
+                        <p style="color: #ccc; margin-bottom: 5px;">• إصلاح أي مشاكل تقنية</p>
+                        <p style="color: #ccc;">• تحديث المحتوى والمنتجات</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 32px; font-weight: bold; color: white;">1,500 <span style="font-size: 18px; color: #ccc;">د.ل/سنوياً</span></div>
+                        <p style="color: #ccc; margin-top: 10px;">(اختياري - يضمن استمرارية الموقع)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 40px; margin-bottom: 25px;">🎯 ما يشمله التنفيذ</h3>
+            
+            <div class="guarantees">
+                <div class="guarantee-card fade-in">
+                    <div class="guarantee-icon">💰</div>
+                    <h4>اتفاق واضح على نطاق العمل</h4>
+                    <p>تحديد مكتوب للمهام، المخرجات، والجداول الزمنية قبل بدء التنفيذ</p>
+                </div>
+                <div class="guarantee-card fade-in">
+                    <div class="guarantee-icon">🎓</div>
+                    <h4>تدريب مجاني</h4>
+                    <p>3 ساعات تدريب لك وللفريق على إدارة الموقع</p>
+                </div>
+                <div class="guarantee-card fade-in">
+                    <div class="guarantee-icon">📞</div>
+                    <h4>دعم فني 24/7</h4>
+                    <p>رد خلال 15 دقيقة لأي مشكلة فنية</p>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p style="margin-bottom: 20px;">هذه الوثيقة أعدت خصيصاً لشركة "شتلة ونخلة" - جميع الحقوق محفوظة © 2026</p>
+            <p style="opacity: 0.8; font-size: 14px;">الوثيقة رقم: BP-SN-2026-002 | تاريخ الإصدار: فبراير 2026</p>
+        </div>
+    </div>
+    
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active link
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Scroll to section
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if(targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Update active link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section, .investment-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if(window.scrollY >= (sectionTop - 150)) {
+                    currentSection = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Print button functionality
+        const printButton = document.createElement('button');
+        printButton.innerHTML = '<i class="fas fa-print"></i> طباعة الوثيقة';
+        printButton.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        `;
+        
+        printButton.onclick = () => window.print();
+        document.body.appendChild(printButton);
+        
+        // WhatsApp click tracking
+        document.querySelectorAll('a[href*="whatsapp"]').forEach(link => {
+            link.addEventListener('click', () => {
+                // يمكنك هنا إضافة كود تتبع النقرات إذا أردت
+                console.log('WhatsApp link clicked');
+            });
+        });
+        
+        // Add click counter for CTA buttons
+        let ctaClicks = 0;
+        document.querySelectorAll('.cta-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                ctaClicks++;
+                if(ctaClicks >= 3) {
+                    // إظهار رسالة تشجيعية بعد 3 نقرات
+                    setTimeout(() => {
+                        alert('🔥 خطوة رائعة! قرار الموقع سيكون أفضل استثمار تقوم به هذا العام. فريقنا جاهز لمساعدتك.');
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+

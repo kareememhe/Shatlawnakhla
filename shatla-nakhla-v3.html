@@ -377,6 +377,39 @@ nav.scrolled { box-shadow: 0 6px 24px rgba(92, 64, 51, 0.1); }
     .hero-buttons .btn { width: 100%; justify-content: center; }
     .whatsapp-float { bottom: 14px; left: 14px; }
     body.en .whatsapp-float { right: 14px; }
+    section { padding: 3.2rem 4%; }
+    .videos { display: none; }
+    .products-grid .product-card:nth-child(n+5) { display: none; }
+    .features-grid .feature-card:nth-child(n+5) { display: none; }
+    .occasions-grid .occasion-card:nth-child(3) { display: none; }
+    .reviews-stats { display: none; }
+    .reviews-grid .review-card:nth-child(n+3) { display: none; }
+    .testimonial-form { display: none; }
+    .contact-map { display: none; }
+    .final-cta {
+        margin: 1.8rem 0 0;
+        border-radius: 0;
+        padding: 2.2rem 1rem;
+    }
+    footer { padding: 2rem 1rem 1.2rem; }
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+    .footer-column:nth-child(2),
+    .footer-column:nth-child(3) {
+        display: none;
+    }
+    .footer-brand p {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    .footer-bottom {
+        padding-top: 1rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

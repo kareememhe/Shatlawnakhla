@@ -190,6 +190,14 @@
             overflow: hidden;
             box-shadow: var(--shadow);
         }
+
+        .table-scroll {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+            border-radius: 12px;
+        }
         
         .comparison-table th {
             background: var(--primary);
@@ -542,6 +550,11 @@
             .pricing-tiers {
                 grid-template-columns: 1fr;
             }
+
+            .comparison-table {
+                min-width: 680px;
+                margin: 0;
+            }
         }
         
         @media (max-width: 480px) {
@@ -754,6 +767,7 @@
             
             <h3>📈 مقارنة بين الوضع الحالي والمتوقع</h3>
             
+            <div class="table-scroll">
             <table class="comparison-table">
                 <thead>
                     <tr>
@@ -796,6 +810,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
             
             <div class="highlight-box fade-in">
                 <h3><i class="fas fa-chart-pie"></i> تقدير الأثر المالي</h3>
@@ -877,6 +892,7 @@
             
             <h3>⚔️ كيف ستتغلب على منافسيك الذين ليس لهم مواقع؟</h3>
             
+            <div class="table-scroll">
             <table class="comparison-table fade-in">
                 <thead>
                     <tr>
@@ -913,6 +929,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
             
             <div class="highlight-box" style="margin-top: 30px;">
                 <h3><i class="fas fa-crown"></i> الخلاصة</h3>
